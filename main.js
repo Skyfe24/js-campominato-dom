@@ -9,6 +9,9 @@ const rows = 10;
 const cols = 10;
 const totalBoxes = rows * cols;
 const buttonView = document.getElementById('displayer');
+const scorePlaceholder = document.getElementById('score');
+//let score = document.getElementById('score');
+let score = 0;
 
 // Creo le box sul click del btn
 buttonView.addEventListener('click', function() {
@@ -16,11 +19,19 @@ buttonView.addEventListener('click', function() {
     const box = document.createElement('div');
     box.className = 'box';
     box.innerText = i+1;
+    
     grid.appendChild(box);
 
+    
+
     box.addEventListener('click', function() {
+      if(!box.classList.contains('clicked')){
         box.classList.add('clicked')
+        score++;
+        scorePlaceholder.innerHTML = score;
+        score.innerText = (i+1);
         console.log(i+1)
+      }
     })
     
 
@@ -28,4 +39,6 @@ buttonView.addEventListener('click', function() {
 
   }
 });
+
+
 
