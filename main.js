@@ -22,13 +22,22 @@ buttonView.addEventListener("click", function () {
 
     grid.appendChild(box);
 
-    box.addEventListener("click", function () {
-      if (!box.classList.contains("clicked")) {
-        box.classList.add("clicked");
+    box.addEventListener("click", () => {
+      if (box.classList.contains("clicked")) return;
+      box.classList.add("clicked");
+
+      score.innerText = i + 1;
+      console.log(i + 1);
+
+      const hasHitBomb = bombs.includes(i+1);
+
+      if (hasHitBomb) {
+        box.classList.add("redclicked");
+        console.log("Perso sempre");
+        alert("Perso sempre dottò");
+      } else {
         score++;
         scorePlaceholder.innerHTML = score;
-        score.innerText = i + 1;
-        console.log(i + 1);
       }
     });
   }
@@ -38,7 +47,6 @@ const totalBombs = 16;
 
 const bombs = generateBombs(totalBombs, totalBoxes);
 console.log(bombs);
-
 
 // funzione: genera le 16 bombe
 function generateBombs(numberOfBombs, maxNumber) {

@@ -44,6 +44,18 @@ body{
   cursor:not-allowed;
 }
 
+.redclicked{
+  background-color: rgb(230, 34, 34);
+  flex-basis: calc(100% / 10);
+  border: 2px solid salmon;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  cursor:not-allowed;
+}
+
+
 .flex {
   display: flex;
 }
