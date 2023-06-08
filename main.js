@@ -12,7 +12,12 @@ const buttonView = document.getElementById("displayer");
 const scorePlaceholder = document.getElementById("score");
 //let score = document.getElementById('score');
 let score = 0;
+maxScore = 84;
 
+grid.addEventListener('click', function(){
+  
+
+})
 // Creo le box sul click del btn
 buttonView.addEventListener("click", function () {
   for (let i = 0; i < totalBoxes; i++) {
@@ -27,7 +32,8 @@ buttonView.addEventListener("click", function () {
       box.classList.add("clicked");
 
       score.innerText = i + 1;
-      console.log(i + 1);
+      
+      
 
       const hasHitBomb = bombs.includes(i+1);
 
@@ -38,6 +44,9 @@ buttonView.addEventListener("click", function () {
       } else {
         score++;
         scorePlaceholder.innerHTML = score;
+
+        if (score === maxScore) {
+          alert('Hai palesemente barato ma hai vinto');}
       }
     });
   }
